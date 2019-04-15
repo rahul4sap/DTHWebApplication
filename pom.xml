@@ -6,7 +6,7 @@
 	<groupId>com.demo.springboot</groupId>
 	<artifactId>dth-web-application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<!--packaging>war</packaging-->
 
 	<name>dth-services</name>
 	<description>Demo project for Spring Boot</description>
