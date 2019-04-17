@@ -19,7 +19,7 @@ import com.demo.springboot.service.DTHService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DTHServicesApplicationTests {
+public class DTHServicesApplicationUnitTests {
 	
 	@Autowired
 	private DTHService service;
@@ -51,7 +51,7 @@ public class DTHServicesApplicationTests {
 	 }
 	 
 	 @Test
-	 public void testRetrieveChannels(String userId) {
+	 public void testRetrieveChannels() {
 		 List<Channel> channelsList = service.retrieveChannels(validUserId);
 	    assertTrue("Invalid Channel Count", channelsList.size() == validUserChannelCount);
 	 }
