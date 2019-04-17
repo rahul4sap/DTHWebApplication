@@ -1,4 +1,4 @@
-package com.demo.springboot;
+package com.demo.springboot.unittest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -41,8 +41,7 @@ public class DTHServicesApplicationTests {
 	 @Test
 	 public void testRetrieveUser() {
 		 User user = service.retrieveUser(validUserId);
-
-		 assertEquals("User Name Invalid", user.getName(),validUserName);
+		 assertEquals("!User Retrieve Test Failed",validUserName, user.getName());
 	 }
 	 
 	 @Test
@@ -52,7 +51,7 @@ public class DTHServicesApplicationTests {
 	 }
 	 
 	 @Test
-	 public void testRetrieveChannels() {
+	 public void testRetrieveChannels(String userId) {
 		 List<Channel> channelsList = service.retrieveChannels(validUserId);
 	    assertTrue("Invalid Channel Count", channelsList.size() == validUserChannelCount);
 	 }
