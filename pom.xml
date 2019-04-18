@@ -23,6 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<tomcat.http.port>9090</tomcat.http.port>
 	</properties>
 
 	<dependencies>
@@ -68,6 +69,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
+					<skipTests>${skip.surefire.tests}</skipTests>
 					<includes>
 						<include>**/*Unit*</include>
 					</includes>
@@ -84,6 +86,11 @@
 						<goals>
 							<goal>start</goal>
 						</goals>
+                                                <configuration>
+              						<arguments>
+                						<argument>--server.port=${tomcat.http.port}</argument>
+              						</arguments>
+            					</configuration>
 					</execution>
 					<execution>
 						<id>post-integration-test</id>
