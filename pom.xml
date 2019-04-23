@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
 	<name>dth-services</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for DTH APP</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
