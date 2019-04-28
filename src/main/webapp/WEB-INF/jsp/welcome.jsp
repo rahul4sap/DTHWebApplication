@@ -54,6 +54,10 @@
     <div class="col-sm-4">
       <h5><span class="badge badge-secondary">User ID</span>: <span id="userID"></span></h5>
       <h5><span class="badge badge-secondary">Name   </span>: <span id="userName"></span></h5>
+   	  <button type="button" class="btn btn-primary" id="getAddress">RETRIEVE ADDRESS</button>
+      <h4 id="addressHeader"><span class="badge badge-secondary">Address</span></h4>
+      <h5><span id="addressPlaceHolder"></span></h5>
+      <ul id="addressItems" class="list-group"></ul>
     </div>
     <div class="col-sm-8">
       <h2>SUBSCRIBED CHANNELS</h2>
@@ -62,12 +66,19 @@
   		</ul>
      </div>
   </div>
+  
+   
 </div>
 </body>
 
 <script>
 $(document).ready(function(){
+
+	$("#addressHeader").hide();
+
 	$("a[id]").on("click",function(){
+		$("#addressHeader").hide();
+		$("#addressItems").empty();
 		var id = $(this).attr("id");
 		$("#userID").text(id);
 		$("#userName").text($(this).text());
@@ -86,6 +97,31 @@ $(document).ready(function(){
   				}
   		});
 	});
+	
+	
+	$("#getAddress").on("click",function(){
+		var id = $("#userID").text();
+		var url = "/users/"+id+"/address";
+  		$.ajax({
+  				url: url, 
+  				dataType: 'json',
+  				success: function(result){
+  					$("#addressItems").empty();
+  					$("#addressHeader").show();
+  					$("#addressItems").append("<li class=\"list-group-item\">"+result.street+"</li>");
+  					$("#addressItems").append("<li class=\"list-group-item\">"+result.city+"</li>");
+  					$("#addressItems").append("<li class=\"list-group-item\">"+result.state+"</li>");
+  					$("#addressItems").append("<li class=\"list-group-item\">"+result.country+"</li>");
+  					$("#addressItems").append("<li class=\"list-group-item\">"+result.zip+"</li>");
+  				},
+  				error: function(result){
+  					$("#addressItems").empty();
+  					$("#addressItems").append("<li class=\"list-group-item\">Error Retrieving Address</li>");
+  				}
+  				
+  		});
+	});
+	
 });
 </script>
 </html>
