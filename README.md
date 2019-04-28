@@ -51,3 +51,7 @@ ENV NAME World
 CMD ["java", "-jar","dth-web-application-0.0.1-SNAPSHOT.war"]
 
 ```
+
+```
+[centos@ip-172-31-31-213 DTHImage]$ sudo docker build .
+```

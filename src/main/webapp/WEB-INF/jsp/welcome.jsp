@@ -37,6 +37,10 @@
 </nav>
 
 <div class="container">
+
+<h5><span class="badge badge-secondary">Host Name     </span>: <span id="hostName"></span></h5>
+<h5><span class="badge badge-secondary">Host Address  </span>: <span id="hostAddress"></span></h5>
+
 <br>
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,6 +77,18 @@
 
 <script>
 $(document).ready(function(){
+	    var hostUrl = "/host";
+		$.ajax({
+  				url: hostUrl, 
+  				dataType: 'json',
+  				success: function(result){
+  					$("#hostName").empty();
+  					$("#hostAddress").empty();
+  					$("#hostName").text(result.hostName);
+  					$("#hostAddress").text(result.hostAddress);
+  				}
+  		});
+
 
 	$("#addressHeader").hide();
 
