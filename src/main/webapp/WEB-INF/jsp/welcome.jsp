@@ -77,7 +77,7 @@
 
 <script>
 $(document).ready(function(){
-	    var hostUrl = "/host";
+	    var hostUrl = "host";
 		$.ajax({
   				url: hostUrl, 
   				dataType: 'json',
@@ -100,7 +100,7 @@ $(document).ready(function(){
 		$("#userName").text($(this).text());
 		var d = new Date();
 		$("#datePlaceHolder").text(d)
-		var url = "/users/"+id+"/channels";
+		var url = "users/"+id+"/channels";
   		$.ajax({
   				url: url, 
   				dataType: 'json',
@@ -117,7 +117,7 @@ $(document).ready(function(){
 	
 	$("#getAddress").on("click",function(){
 		var id = $("#userID").text();
-		var url = "/users/"+id+"/address";
+		var url = "users/"+id+"/address";
   		$.ajax({
   				url: url, 
   				dataType: 'json',
