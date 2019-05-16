@@ -1,6 +1,6 @@
 # DTHWebApplication
 
-### DTHWebApplication Spring Boot Application for DEVOPS Training
+### DTHWebApplication Spring Boot Application for DEVOPS Training Demo
 
 ```
 mvn install -Dmaven.test.skip=true
